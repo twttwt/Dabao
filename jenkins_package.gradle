@@ -4,19 +4,23 @@ import java.text.SimpleDateFormat
 
 task packageApk {
     println("BUILD_TYPE:" + BUILD_TYPE)
-    def apkDir = new File("./app/build/outputs/apk/${BUILD_TYPE}")
+    def apkDir = new File("app/build/outputs/apk/${BUILD_TYPE}")
+    println("apkDir:"+apkDir.getAbsolutePath())
     if (apkDir.exists() && apkDir.isDirectory()) {
+        println("11111111:")
         apkDir.deleteDir()
     }
+    println("2222222:")
     dependsOn("assemble" + BUILD_TYPE.capitalize())
     doLast {
+        println("333333:")
         uploadApk()
     }
 }
 
 def uploadApk() {
-    println("uoloadApk:" + "./app/build/outputs/apk/${BUILD_TYPE}")
-    def apkDir = new File("./app/build/outputs/apk/${BUILD_TYPE}")
+    println("uploadApk:" + "app/build/outputs/apk/${BUILD_TYPE}")
+    def apkDir = new File("app/build/outputs/apk/${BUILD_TYPE}")
     if (!apkDir.exists()) {
         throw new RuntimeException("apk output path not exists!")
     }
