@@ -54,7 +54,43 @@ android {
             arg("root_project_dir", rootProject.projectDir.absolutePath)
         }
     }
-    productFlavors{
+//    flavorDimensions "size","material"
+//    productFlavors{
+//       small{
+//           dimension "size"
+//       }
+//        big{
+//            dimension "size"
+//        }
+//        egg{
+//            dimension "material"
+//            applicationIdSuffix ".egg"
+//        }
+//        milk{
+//            dimension "material"
+//            applicationIdSuffix ".milk"
+//        }
+//    }
+    flavorDimensions "channel"
+    productFlavors {
+        baidu {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
+        }
+        wandoujia {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "wandoujia"]
+        }
+        xiaomi {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            if (variant.buildType.name.equals('release')) {
+                def fileName = "Demo_${variant.productFlavors[0].name}" +
+                        "_${defaultConfig.versionName}.apk"
+                output.outputFileName = fileName
+            }
+        }
 
     }
 }
@@ -77,3 +113,12 @@ dependencies {
 println("我是app.gradle的代码")
 
 apply from: project.rootProject.file("other.gradle")
+
+Properties properties=new Properties()
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+def u=properties.getProperty('USER_NAME')
+def p=properties.getProperty('PASSWORD')
+
+println("test user name---------$u")
+println("test user pwd---------$p")
