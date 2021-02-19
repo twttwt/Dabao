@@ -1,2 +1,10 @@
-include ':app'
+include ':router-runtime'
+include ':biz-reading'
+include ':router-processor'
+include ':router-annotations'
+include ':app',':router-gradle-plugin'
 rootProject.name = "Dabao"
+
+gradle.taskGraph.beforeTask {task->
+    println("[all task]"+task.name)
+}

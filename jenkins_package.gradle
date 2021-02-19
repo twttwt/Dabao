@@ -16,6 +16,9 @@ task packageApk {
         println("333333:")
         uploadApk()
     }
+    doFirst {
+        println("000000")
+    }
 }
 
 def uploadApk() {

@@ -1,6 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.imooc.router'
+    id 'kotlin-kapt'
+}
+/**
+ * 3.应用路由插件
+ */
+/**
+ * 4向路由插件传递参数
+ */
+router {
+    wikiDir getRootDir().absolutePath
 }
 
 android {
@@ -38,6 +49,14 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    kapt {
+        arguments {
+            arg("root_project_dir", rootProject.projectDir.absolutePath)
+        }
+    }
+    productFlavors{
+
+    }
 }
 
 dependencies {
@@ -50,4 +69,11 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation project(':router-annotations')
+    implementation project(':router-runtime')
+    kapt project(':router-processor')
 }
+
+println("我是app.gradle的代码")
+
+apply from: project.rootProject.file("other.gradle")
