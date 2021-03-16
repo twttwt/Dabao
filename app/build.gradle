@@ -71,28 +71,28 @@ android {
 //            applicationIdSuffix ".milk"
 //        }
 //    }
-    flavorDimensions "channel"
-    productFlavors {
-        baidu {
-            manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
-        }
-        wandoujia {
-            manifestPlaceholders = [MTA_CHANNEL_VALUE: "wandoujia"]
-        }
-        xiaomi {
-            manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
-        }
-    }
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            if (variant.buildType.name.equals('release')) {
-                def fileName = "Demo_${variant.productFlavors[0].name}" +
-                        "_${defaultConfig.versionName}.apk"
-                output.outputFileName = fileName
-            }
-        }
-
-    }
+//    flavorDimensions "channel"
+//    productFlavors {
+//        baidu {
+//            manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
+//        }
+//        wandoujia {
+//            manifestPlaceholders = [MTA_CHANNEL_VALUE: "wandoujia"]
+//        }
+//        xiaomi {
+//            manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+//        }
+//    }
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            if (variant.buildType.name.equals('release')) {
+//                def fileName = "Demo_${variant.productFlavors[0].name}" +
+//                        "_${defaultConfig.versionName}.apk"
+//                output.outputFileName = fileName
+//            }
+//        }
+//
+//    }
 }
 
 dependencies {
