@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dabao">
-        <meta-data
+        <!--<meta-data
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"
-            />
+            />-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
