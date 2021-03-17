@@ -113,7 +113,7 @@ dependencies {
 println("我是app.gradle的代码")
 
 apply from: project.rootProject.file("other.gradle")
-
+apply from: project.rootProject.file("jenkins_package.gradle")
 //Properties properties=new Properties()
 //properties.load(project.rootProject.file("local.properties").newDataInputStream())
 //

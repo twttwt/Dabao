@@ -22,8 +22,8 @@ task packageApk {
 }
 
 def uploadApk() {
-    println("uploadApk:" + "app/build/outputs/apk/${BUILD_TYPE}")
-    def apkDir = new File("app/build/outputs/apk/${BUILD_TYPE}")
+    println("uploadApk:" + "./app/build/outputs/apk/${BUILD_TYPE}")
+    def apkDir = new File("./app/build/outputs/apk/${BUILD_TYPE}")
     if (!apkDir.exists()) {
         throw new RuntimeException("apk output path not exists!")
     }

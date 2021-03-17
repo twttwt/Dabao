@@ -1,0 +1,1 @@
+[{"url":"router://page-home","description":"首页","realPath":"com.twt.dabao.MainActivity"},{"url":"router://imooc/profile","description":"个人信息","realPath":"com.twt.dabao.ProfileActivity"}]

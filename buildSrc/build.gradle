@@ -10,7 +10,7 @@ repositories {
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:4.1.2'
+    implementation 'com.android.tools.build:gradle:4.0.1'
 }
 //调用maven插件，用于发布
 apply plugin: 'maven'
